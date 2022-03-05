@@ -64,6 +64,7 @@
 			function endGame () {
 				document.getElementById("correctAnswer").innerHTML = countryName;
 				document.getElementById("btnAgain").hidden = false;
+				document.getElementById("btnCheckOnMaps").hidden = false;
 			}
 
 			function check (choice) {
@@ -151,7 +152,7 @@
 				margin-left: 0px;
 			}
 
-			#btnAgain {
+			.btn {
 				background-color: white;
 				color: black;
 				font-family: Arial, Helvetica, sans-serif;
@@ -342,7 +343,8 @@
 		<!-- Btn Jogar Novamente -->
 		<div class = container>
 			<form>
-				<button type ="submit" id="btnAgain" hidden>Jogar novamente</button>
+				<button type ="submit" id="btnAgain" class="btn" hidden>Jogar novamente</button>
+				<button type="submit" id="btnCheckOnMaps" class="btn" hidden>Olhar no Google Maps!</button>
 			</form>
 		</div>
 
