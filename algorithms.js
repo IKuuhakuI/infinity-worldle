@@ -46,5 +46,17 @@ function calculateDirection(choiceLat, choiceLon, realLat, realLon) {
 		tHor = "direita";
 	}
 
-	console.log (tVer + " " + tHor);
+	if (hor == 1) {
+		if (ver == 1) {
+			return "be.png";
+		} else if (ver == 2) {
+			return "ce.png";
+		}
+	} else if (hor = 2) {
+		if (ver == 1) {
+			return "bd.png";
+		} else if (ver == 2) {
+			return "cd.png";
+		}
+	} 
 }
