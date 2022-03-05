@@ -90,12 +90,12 @@
 
 				guess += 1;
 
-				changeInput (guess);
 
 				if (choice.value == countryName) {
+					changeInput(6);
 					console.log("Acertou");
 				} else {
-
+					changeInput (guess);
 					distance = calculateDistance (	countries[indexChoice].latitude, countries[indexChoice].longitude, 
 									countryLatitude, countryLongitude);
 

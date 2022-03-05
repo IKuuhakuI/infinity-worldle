@@ -672,12 +672,6 @@ const countries = [
     longitude: "75"
   },
   {
-    country: "Lao People's Democratic Republic",
-    code: "LA",
-    latitude: "18",
-    longitude: "105"
-  },
-  {
     country: "Latvia",
     code: "LV",
     latitude: "57",
@@ -700,12 +694,6 @@ const countries = [
     code: "LR",
     latitude: "6.5",
     longitude: "-9.5"
-  },
-  {
-    country: "Libyan Arab Jamahiriya",
-    code: "LY",
-    latitude: "25",
-    longitude: "17"
   },
   {
     country: "Libya",
@@ -814,12 +802,6 @@ const countries = [
     code: "MX",
     latitude: "23",
     longitude: "-102"
-  },
-  {
-    country: "Micronesia",
-    code: "FM",
-    latitude: "6.9167",
-    longitude: "158.25"
   },
   {
     country: "Monaco",
@@ -1036,12 +1018,6 @@ const countries = [
     code: "RO",
     latitude: "46",
     longitude: "25"
-  },
-  {
-    country: "Russian Federation",
-    code: "RU",
-    latitude: "60",
-    longitude: "100"
   },
   {
     country: "Russia",
