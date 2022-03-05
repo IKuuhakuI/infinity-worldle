@@ -1344,12 +1344,6 @@ const countries = [
     longitude: "-97"
   },
   {
-    country: "United States Minor Outlying Islands",
-    code: "UM",
-    latitude: "19.2833",
-    longitude: "166.6"
-  },
-  {
     country: "Uruguay",
     code: "UY",
     latitude: "-33",

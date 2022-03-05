@@ -22,28 +22,33 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
 
 function calculateDirection(choiceLat, choiceLon, realLat, realLon) {
 	// hor = 0 igual | hor = 1 esq | hor = 2 dir
-	hor = 0;
+	var hor = 0;
 	// ver = 0 igual | ver = 1 baixo | ver = 2 cima
-	ver = 0;
+	var ver = 0;
 
-	tHor = "";
-	tVer = "";
+	var tHor = "";
+	var tVer = "";
 
-	// esquerda
-	if (choiceLat > realLat) {
-		hor = 1;
-		tHor = "esquerda";
-	} else if (choiceLat < realLat) {
-		hor = 2;
-		tHor = "direita";
-	}
+	console.log(choiceLat);
+	console.log(choiceLon);
+	console.log(realLat);
+	console.log(realLon);
 
-	if (choiceLon > realLon) {
+	if (parseFloat(choiceLat) > parseFloat(realLat)) {
 		ver = 1;
 		tVer = "baixo";
-	} else if (choiceLon < realLon) {
+	} else if (parseFloat(choiceLat) < parseFloat(realLat)) {
 		ver = 2;
 		tVer = "cima";
+	}
+
+
+	if (parseFloat(choiceLon) > parseFloat(realLon)) {
+		hor = 1;
+		tHor = "esquerda";
+	} else if (parseFloat(choiceLon) < parseFloat(realLon)) {
+		hor = 2;
+		tHor = "direita";
 	}
 
 	console.log (tVer + " " + tHor);
