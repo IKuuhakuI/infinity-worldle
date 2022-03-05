@@ -50,27 +50,14 @@
 			var guess = 0;
 
 			function changeInput (guess) {
-				if (guess == 1) {
-					document.getElementById("option1").disabled = true;
-					document.getElementById("option2").disabled = false;
-				} else if (guess == 2) {
-					document.getElementById("option2").disabled = true;
-					document.getElementById("option3").disabled = false;
-				} else if (guess == 3) {
-					document.getElementById("option3").disabled = true;
-					document.getElementById("option4").disabled = false;
+				var lockOpt = "option" + guess;
+				nextOpt = guess + 1;
+				var unlockOpt = "option" + nextOpt;
 
-				} else if (guess == 4) {
-					document.getElementById("option4").disabled = true;
-					document.getElementById("option5").disabled = false;
+				document.getElementById(lockOpt).disabled = true;
 
-				} else if (guess == 5) {
-					document.getElementById("option5").disabled = true;
-					document.getElementById("option6").disabled = false;
-
-				} else if (guess == 6) {
-					document.getElementById("option6").disabled = true;
-
+				if (guess != 6) {
+					document.getElementById(unlockOpt).disabled = false;
 				}
 			}
 
@@ -162,6 +149,14 @@
 				border: 2px solid white;
 				padding: 5px;
 				margin-left: 0px;
+			}
+
+			#btnAgain {
+				background-color: white;
+				color: black;
+				font-family: Arial, Helvetica, sans-serif;
+				border: none;
+				padding: 5px;
 			}
 
 			h1{
