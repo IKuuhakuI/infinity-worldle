@@ -654,7 +654,7 @@ const countries = [
     longitude: "173"
   },
   {
-    country: "SouthKorea",
+    country: "South Korea",
     code: "KR",
     latitude: "37",
     longitude: "127.5"

@@ -119,24 +119,14 @@
 					direction = calculateDirection (countries[indexChoice].latitude, countries[indexChoice].longitude,
 									countryLatitude, countryLongitude);
 
-					if (guess == 1) {
-						document.getElementById("dist1").innerHTML = distance + " KM   " 
-						+ "<img src=./img/" + direction + " height=15px width=15px>";
-					} else if (guess == 2) {
-						document.getElementById("dist2").innerHTML = distance + " KM   " 
-						+ "<img src=./img/" + direction + " height=15px width=15px>";
-					} else if (guess == 3) {
-						document.getElementById("dist3").innerHTML = distance + " KM   " 
-						+ "<img src=./img/" + direction + " height=15px width=15px>";
-					} else if (guess == 4) {
-						document.getElementById("dist4").innerHTML = distance + " KM   " 
-						+ "<img src=./img/" + direction + " height=15px width=15px>";
-					} else if (guess == 5) {
-						document.getElementById("dist5").innerHTML = distance + " KM   " 
-						+ "<img src=./img/" + direction + " height=15px width=15px>";
-					} else if (guess == 6) {
-						document.getElementById("dist6").innerHTML = distance + " KM   " 
-						+ "<img src=./img/" + direction + " height=15px width=15px>";
+					var currentDist = "dist" + guess;
+
+					// Coloca a distancia e a direcao para o local correto
+					document.getElementById(currentDist).innerHTML = distance + " Km   "
+					+ "<img src =./img/" + direction + " height=15px width=15px>";
+	
+					// Verifica se o jogo acabou
+					if (guess == 6) {
 						gameEnded = 1;
 					}
 
