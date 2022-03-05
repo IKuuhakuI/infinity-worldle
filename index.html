@@ -49,6 +49,13 @@
 
 			var guess = 0;
 
+			function checkOnMaps () {
+				url = "https://www.google.com/maps/place/" + countryName;
+				window.open(url, "_blank");
+				
+				return false;
+			}
+
 			function changeInput (guess) {
 				var lockOpt = "option" + guess;
 				nextOpt = guess + 1;
@@ -348,7 +355,7 @@
 		<div class = container>
 			<form>
 				<button type ="submit" id="btnAgain" class="btn" hidden>Jogar novamente</button>
-				<button type="submit" id="btnCheckOnMaps" class="btn" hidden>Olhar no Google Maps!</button>
+				<button type="button" id="btnCheckOnMaps" class="btn" onclick="checkOnMaps()" hidden>Olhar no Google Maps!</button>
 			</form>
 		</div>
 
