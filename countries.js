@@ -42,12 +42,6 @@ const countries = [
     longitude: "-63.1667"
   },
   {
-    country: "Antiguaand Barbuda",
-    code: "AG",
-    latitude: "17.05",
-    longitude: "-61.8"
-  },
-  {
     country: "Argentina",
     code: "AR",
     latitude: "-34",
@@ -912,7 +906,7 @@ const countries = [
     longitude: "-169.8667"
   },
   {
-    country: "NorfolkIsland",
+    country: "Norfolk Island",
     code: "NF",
     latitude: "-29.0333",
     longitude: "167.95"
@@ -1140,12 +1134,6 @@ const countries = [
     longitude: "-37"
   },
   {
-    country: "South Sudan",
-    code: "SS",
-    latitude: "8",
-    longitude: "30"
-  },
-  {
     country: "Spain",
     code: "ES",
     latitude: "40",
@@ -1242,7 +1230,7 @@ const countries = [
     longitude: "-175"
   },
   {
-    country: "Trinidadand Tobago",
+    country: "Trinidad and Tobago",
     code: "TT",
     latitude: "11",
     longitude: "-61"
