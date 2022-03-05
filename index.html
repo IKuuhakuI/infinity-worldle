@@ -27,6 +27,8 @@
 				countryLatitude = countries[countryIndex].latitude;
 				countryLongitude = countries[countryIndex].longitude;
 
+				console.log ("Pais = " + countryName);
+
 				var data = google.visualization.arrayToDataTable([
 					['Country'],
 					[countryName]
@@ -72,9 +74,13 @@
 				}
 			}
 
-			function check (choice) {
-				var i = 0;
+			function endGame () {
+				document.getElementById("btnAgain").hidden = false;
+			}
 
+			function check (choice) {
+				gameEnded = 0;
+				var i = 0;
 				var indexChoice = -1;
 
 				while (i < countries.length) {
@@ -95,6 +101,7 @@
 					for (var i = 1; i < 7; i++) {
 						changeInput(i);
 					}
+					gameEnded = 1;
 					console.log("Acertou");
 				} else {
 					changeInput (guess);
@@ -122,10 +129,15 @@
 					} else if (guess == 6) {
 						document.getElementById("dist6").innerHTML = distance + " KM   " 
 						+ "<img src=./img/" + direction + " height=15px width=15px>";
+						gameEnded = 1;
 					}
 
 					console.log("Errou! Chute: " +  choice + " Correto: " + countryName + " Distancia= " + distance);
 
+				}
+
+				if (gameEnded == 1) {
+					endGame();
 				}
 
 				return false;
@@ -139,6 +151,11 @@
 				flex-direction: row;
 				display: flex;
 				align-items: center;
+			}
+
+			.dist {
+				font-family: Arial, Helvetica, sans-serif;
+				color: white;
 			}
 
 			h1{
@@ -179,7 +196,7 @@
 					document.getElementById('listCountries').innerHTML = selectOpt;
 				</script>
 			</datalist>
-			<label id="dist1">
+			<label id="dist1" class="dist">
 
 			</label>
 				<button	type="submit" 
@@ -206,7 +223,7 @@
 					document.getElementById('listCountries').innerHTML = selectOpt;
 				</script>
 			</datalist>
-			<label id="dist2"></label>
+			<label id="dist2" class="dist"></label>
 			<button	type="submit" 
 				style="position: absolute; left:-9999px; width: 1px. height:1px;"
 				tabindex="-1"
@@ -231,7 +248,7 @@
 					document.getElementById('listCountries').innerHTML = selectOpt;
 				</script>
 			</datalist>
-			<label id="dist3"></label>
+			<label id="dist3" class="dist"></label>
 			<button	type="submit" 
 				style="position: absolute; left:-9999px; width: 1px. height:1px;"
 				tabindex="-1"
@@ -256,7 +273,7 @@
 					document.getElementById('listCountries').innerHTML = selectOpt;
 				</script>
 			</datalist>
-			<label id="dist4"></label>
+			<label id="dist4" class="dist"></label>
 			<button	type="submit" 
 				style="position: absolute; left:-9999px; width: 1px. height:1px;"
 				tabindex="-1"
@@ -281,7 +298,7 @@
 					document.getElementById('listCountries').innerHTML = selectOpt;
 				</script>
 			</datalist>
-			<label id="dist5"></label>
+			<label id="dist5" class="dist"></label>
 			<button	type="submit" 
 				style="position: absolute; left:-9999px; width: 1px. height:1px;"
 				tabindex="-1"
@@ -306,12 +323,19 @@
 					document.getElementById('listCountries').innerHTML = selectOpt;
 				</script>
 			</datalist>
-			<label id="dist6"></label>
+			<label id="dist6" class="dist"></label>
 			<button	type="submit" 
 				style="position: absolute; left:-9999px; width: 1px. height:1px;"
 				tabindex="-1"
 				onclick="check(document.getElementById('option6')).value" />
 
+			</form>
+		</div>
+
+		<!-- Btn Jogar Novamente -->
+		<div class = container>
+			<form>
+				<button type ="submit" id="btnAgain" hidden>Jogar novamente</button>
 			</form>
 		</div>
 
