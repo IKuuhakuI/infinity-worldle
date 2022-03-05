@@ -1008,12 +1008,6 @@ const countries = [
     longitude: "51.25"
   },
   {
-    country: "Réunion",
-    code: "RE",
-    latitude: "-21.1",
-    longitude: "55.6"
-  },
-  {
     country: "Romania",
     code: "RO",
     latitude: "46",

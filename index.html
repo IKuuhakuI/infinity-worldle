@@ -92,7 +92,9 @@
 
 
 				if (choice.value == countryName) {
-					changeInput(6);
+					for (var i = 1; i < 7; i++) {
+						changeInput(i);
+					}
 					console.log("Acertou");
 				} else {
 					changeInput (guess);
