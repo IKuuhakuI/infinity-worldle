@@ -46,9 +46,25 @@
 
 			var guess = 0;
 
+			function changeInput (guess) {
+				if (guess == 1) {
+					document.getElementById("option1").disabled = true;
+					document.getElementById("option2").disabled = false;
+				} else if (guess == 2) {
+
+				} else if (guess == 3) {
+
+				} else if (guess == 4) {
+
+				} else if (guess == 5) {
+
+				} else if (guess == 6) {
+
+				}
+			}
+
 			function check (choice) {
 				var i = 0;
-				guess += 1;
 
 				var indexChoice = -1;
 
@@ -62,6 +78,10 @@
 					}
 					i++
 				}
+
+				guess += 1;
+
+				changeInput (guess);
 
 				if (choice.value == countryName) {
 					console.log("Acertou");
@@ -126,6 +146,32 @@
 				style="position: absolute; left:-9999px; width: 1px. height:1px;"
 				tabindex="-1"
 				onclick="check(document.getElementById('option1')).value" />
+
+			</form>
+		</div>
+
+		<!-- 2 -->
+		<div class=container>
+			<form onsubmit="return false">
+			<input name="country" list="listCountries" id="option2" disabled/>
+			<datalist id="listCountries">
+
+				<script type="text/javascript">
+					var selectOpt = '';
+
+					for (var i = 0; i < countries.length; i++) {
+						selectOpt += '<option value ="' + countries[i].country + '"/>';
+					}
+
+					document.getElementById('listCountries').innerHTML = selectOpt;
+				</script>
+			</datalist>
+			<button	type="submit" 
+				style="position: absolute; left:-9999px; width: 1px. height:1px;"
+				tabindex="-1"
+				onclick="check(document.getElementById('option2')).value" />
+
+			</form>
 		</div>
 
 	</body>

@@ -29,11 +29,6 @@ function calculateDirection(choiceLat, choiceLon, realLat, realLon) {
 	var tHor = "";
 	var tVer = "";
 
-	console.log(choiceLat);
-	console.log(choiceLon);
-	console.log(realLat);
-	console.log(realLon);
-
 	if (parseFloat(choiceLat) > parseFloat(realLat)) {
 		ver = 1;
 		tVer = "baixo";
