@@ -1224,12 +1224,6 @@ const countries = [
     longitude: "100"
   },
   {
-    country: "Timor Leste",
-    code: "TL",
-    latitude: "-8.55",
-    longitude: "125.5167"
-  },
-  {
     country: "Togo",
     code: "TG",
     latitude: "8",
