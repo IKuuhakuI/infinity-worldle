@@ -894,12 +894,6 @@ const countries = [
     longitude: "5.75"
   },
   {
-    country: "Netherlands Antilles",
-    code: "AN",
-    latitude: "12.25",
-    longitude: "-68.75"
-  },
-  {
     country: "New Caledonia",
     code: "NC",
     latitude: "-21.5",
