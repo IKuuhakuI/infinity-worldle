@@ -101,6 +101,13 @@
 					for (var i = 1; i < 7; i++) {
 						changeInput(i);
 					}
+
+					currentOption = "option" + guess;
+
+					document.getElementById(currentOption).style.backgroundColor = "green";
+					document.getElementById(currentOption).style.color = "white";
+					document.getElementById(currentOption).style.border = "2px solid white";
+
 					gameEnded = 1;
 					console.log("Acertou");
 				} else {
@@ -173,7 +180,7 @@
 	<body bgcolor="#000">
 
 		<div class=container>
-			<h1 id="title"> WORLDLE </h1>
+			<h1 id="title"> INFINITY WORLDLE </h1>
 		</div>
 
 		<div class=container>
