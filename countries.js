@@ -42,12 +42,6 @@ const countries = [
     longitude: "-63.1667"
   },
   {
-    country: "Antarctica",
-    code: "AQ",
-    latitude: "-90",
-    longitude: "0"
-  },
-  {
     country: "Antiguaand Barbuda",
     code: "AG",
     latitude: "17.05",
@@ -270,12 +264,6 @@ const countries = [
     longitude: "105.6667"
   },
   {
-    country: "Cocos (Keeling) Islands",
-    code: "CC",
-    latitude: "-12.5",
-    longitude: "96.8333"
-  },
-  {
     country: "Colombia",
     code: "CO",
     latitude: "4",
@@ -400,12 +388,6 @@ const countries = [
     code: "ET",
     latitude: "8",
     longitude: "38"
-  },
-  {
-    country: "Falkland Islands (Malvinas)",
-    code: "FK",
-    latitude: "-51.75",
-    longitude: "-59"
   },
   {
     country: "Faroe Islands",
@@ -556,12 +538,6 @@ const countries = [
     code: "HM",
     latitude: "-53.1",
     longitude: "72.5167"
-  },
-  {
-    country: "HolySee (VaticanCityState)",
-    code: "VA",
-    latitude: "41.9",
-    longitude: "12.45"
   },
   {
     country: "Honduras",
