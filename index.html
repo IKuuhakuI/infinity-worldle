@@ -52,14 +52,22 @@
 					document.getElementById("option1").disabled = true;
 					document.getElementById("option2").disabled = false;
 				} else if (guess == 2) {
-
+					document.getElementById("option2").disabled = true;
+					document.getElementById("option3").disabled = false;
 				} else if (guess == 3) {
+					document.getElementById("option3").disabled = true;
+					document.getElementById("option4").disabled = false;
 
 				} else if (guess == 4) {
+					document.getElementById("option4").disabled = true;
+					document.getElementById("option5").disabled = false;
 
 				} else if (guess == 5) {
+					document.getElementById("option5").disabled = true;
+					document.getElementById("option6").disabled = false;
 
 				} else if (guess == 6) {
+					document.getElementById("option6").disabled = true;
 
 				}
 			}
@@ -94,7 +102,19 @@
 					direction = calculateDirection (countries[indexChoice].latitude, countries[indexChoice].longitude,
 									countryLatitude, countryLongitude);
 
-						document.getElementById("dist1").innerHTML = distance;
+					if (guess == 1) {
+						document.getElementById("dist1").innerHTML = distance + " KM";
+					} else if (guess == 2) {
+						document.getElementById("dist2").innerHTML = distance + " KM";
+					} else if (guess == 3) {
+						document.getElementById("dist3").innerHTML = distance + " KM";
+					} else if (guess == 4) {
+						document.getElementById("dist4").innerHTML = distance + " KM";
+					} else if (guess == 5) {
+						document.getElementById("dist5").innerHTML = distance + " KM";
+					} else if (guess == 6) {
+						document.getElementById("dist6").innerHTML = distance + " KM";
+					}
 
 					console.log("Errou! Chute: " +  choice + " Correto: " + countryName + " Distancia= " + distance);
 
@@ -176,6 +196,7 @@
 					document.getElementById('listCountries').innerHTML = selectOpt;
 				</script>
 			</datalist>
+			<label id="dist2"></label>
 			<button	type="submit" 
 				style="position: absolute; left:-9999px; width: 1px. height:1px;"
 				tabindex="-1"
@@ -200,6 +221,7 @@
 					document.getElementById('listCountries').innerHTML = selectOpt;
 				</script>
 			</datalist>
+			<label id="dist3"></label>
 			<button	type="submit" 
 				style="position: absolute; left:-9999px; width: 1px. height:1px;"
 				tabindex="-1"
@@ -224,6 +246,7 @@
 					document.getElementById('listCountries').innerHTML = selectOpt;
 				</script>
 			</datalist>
+			<label id="dist4"></label>
 			<button	type="submit" 
 				style="position: absolute; left:-9999px; width: 1px. height:1px;"
 				tabindex="-1"
@@ -235,7 +258,7 @@
 		<!-- 5 -->
 		<div class=container>
 			<form onsubmit="return false">
-			<input name="country" list="listCountries" id="option2" disabled/>
+			<input name="country" list="listCountries" id="option5" disabled/>
 			<datalist id="listCountries">
 
 				<script type="text/javascript">
@@ -248,6 +271,7 @@
 					document.getElementById('listCountries').innerHTML = selectOpt;
 				</script>
 			</datalist>
+			<label id="dist5"></label>
 			<button	type="submit" 
 				style="position: absolute; left:-9999px; width: 1px. height:1px;"
 				tabindex="-1"
@@ -272,6 +296,7 @@
 					document.getElementById('listCountries').innerHTML = selectOpt;
 				</script>
 			</datalist>
+			<label id="dist6"></label>
 			<button	type="submit" 
 				style="position: absolute; left:-9999px; width: 1px. height:1px;"
 				tabindex="-1"
