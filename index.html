@@ -27,7 +27,7 @@
 				countryLatitude = countries[countryIndex].latitude;
 				countryLongitude = countries[countryIndex].longitude;
 
-				console.log ("Pais = " + countryName);
+				// console.log ("Pais = " + countryName);
 
 				var data = google.visualization.arrayToDataTable([
 					['Country'],
@@ -84,7 +84,7 @@
 						indexChoice = i;
 						break;
 					} else if (i == countries.length - 1){
-						console.log("Nao tem");
+						// console.log("Nao tem");
 						return 3;
 					}
 					i++;
@@ -105,7 +105,7 @@
 					document.getElementById(currentOption).style.border = "2px solid white";
 
 					gameEnded = 1;
-					console.log("Acertou");
+					// console.log("Acertou");
 				} else {
 					changeInput (guess);
 					distance = calculateDistance (	countries[indexChoice].latitude, countries[indexChoice].longitude, 
@@ -125,7 +125,7 @@
 						gameEnded = 1;
 					}
 
-					console.log("Errou! Chute: " +  choice + " Correto: " + countryName + " Distancia= " + distance);
+					// console.log("Errou! Chute: " +  choice + " Correto: " + countryName + " Distancia= " + distance);
 
 				}
 
@@ -169,6 +169,17 @@
 				font-family: Arial, Helvetica, sans-serif;
 				border: none;
 				padding: 5px;
+			}
+
+			.btn:hover {
+				background-color: gray;
+				color: white;
+				cursor: pointer;
+			}
+
+			.btn:active {
+				background-color: black;
+				color: white;
 			}
 
 			h1{
