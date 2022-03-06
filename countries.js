@@ -1122,7 +1122,7 @@ const countries = [
     longitude: "49"
   },
   {
-    country: "SouthAfrica",
+    country: "South Africa",
     code: "ZA",
     latitude: "-29",
     longitude: "24"
