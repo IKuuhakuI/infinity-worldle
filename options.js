@@ -35,9 +35,12 @@ function check (choice) {
 
 	guess += 1;
 
+	currentOption = "option" + guess;
+
+	document.getElementById(currentOption).setAttribute('value', choice.value);
+	document.getElementById("answer").setAttribute('value', "");
 
 	if (choice.value == countryName) {
-		currentOption = "option" + guess;
 
 		document.getElementById(currentOption).style.backgroundColor = "green";
 		document.getElementById(currentOption).style.color = "white";

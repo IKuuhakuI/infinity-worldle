@@ -270,12 +270,6 @@ const countries = [
     longitude: "44.25"
   },
   {
-    country: "Congo",
-    code: "CG",
-    latitude: "-1",
-    longitude: "15"
-  },
-  {
     country: "Cook Islands",
     code: "CK",
     latitude: "-21.2333",

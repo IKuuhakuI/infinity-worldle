@@ -1,3 +1,7 @@
+function generateRandomCountry (max, min=0){
+	return Math.floor(Math.random() * (max - min)) + min;
+}
+
 function calculateDistance(lat1, lon1, lat2, lon2) {
 	const R = 6371000; // metres
 

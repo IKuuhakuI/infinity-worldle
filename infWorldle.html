@@ -9,11 +9,9 @@
 		<script src="./options.js" type="text/javascript"></script>
 
 		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="style.css">
 
 		<script>
-			function generateRandomCountry (min = 0, max = countries.length){
-				return Math.floor(Math.random() * (max - min)) + min;
-			}
 
 			google.charts.load(	
 				'current', {
@@ -24,7 +22,7 @@
 
 			function drawRegionsMap() {
 				
-				countryIndex = generateRandomCountry();
+				countryIndex = generateRandomCountry(countries.length);
 
 				countryName = countries[countryIndex].country;
 				countryCode = countries[countryIndex].code;
@@ -52,14 +50,7 @@
 			}
 
 			var guess = 0;
-
-
-
-
-		</script>
-			
-		<link rel="stylesheet" type="text/css" href="style.css">
-
+		</script>			
 	</head>
 
 	<body bgcolor="#000">
@@ -80,7 +71,8 @@
 		<!-- Resposta -->
 		<div class=container>
 			<form onsubmit="return false">
-			<input name="country" list="listCountries" id="answer" />
+			<input name="country" id="answer" list="listCountries"
+			placeholder="Digite a sua repsosta..."/>
 			<datalist id="listCountries">
 
 				<script type="text/javascript">
