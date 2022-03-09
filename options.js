@@ -108,6 +108,8 @@ function checkOnMaps () {
 }
 
 function check (choice, gameType) {
+
+	console.log (gameType);
 	gameEnded = 0;
 	var i = 0;
 	var indexChoice = -1;
