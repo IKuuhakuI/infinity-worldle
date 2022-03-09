@@ -47,6 +47,8 @@ function check (choice) {
 		document.getElementById(currentOption).style.border = "2px solid white";
 
 		gameEnded = 1;
+
+		hasWon = true;
 		// console.log("Acertou");
 	} else {
 		distance = calculateDistance (	countries[indexChoice].latitude, countries[indexChoice].longitude, 
@@ -63,6 +65,7 @@ function check (choice) {
 
 		// Verifica se o jogo acabou
 		if (guess == 6) {
+			hasWon = false;
 			gameEnded = 1;
 		}
 
@@ -71,13 +74,21 @@ function check (choice) {
 	}
 
 	if (gameEnded == 1) {
-		endGame();
+		endGame(hasWon);
 	}
 
 	return false;
 }
 
-function endGame () {
+function endGame (hasWon) {
+	document.getElementById("answer").disabled = true;
+	document.getElementById("answer").style.color = "white"
+	document.getElementById("answer").style.border = "2px solid white"
+	if (hasWon) {
+		document.getElementById("answer").style.backgroundColor = "green"
+	} else {
+		document.getElementById("answer").style.backgroundColor = "red"
+	}
 	document.getElementById("correctAnswer").innerHTML = countryName;
 	document.getElementById("btnAgain").hidden = false;
 	document.getElementById("btnCheckOnMaps").hidden = false;
