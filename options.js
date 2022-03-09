@@ -110,6 +110,7 @@ function checkOnMaps () {
 function check (choice, gameType) {
 
 	console.log (gameType);
+	console.log (choice);
 	gameEnded = 0;
 	var i = 0;
 	var indexChoice = -1;
@@ -119,7 +120,6 @@ function check (choice, gameType) {
 			indexChoice = i;
 			break;
 		} else if (i == countries.length - 1){
-			document.getElementById("answer").style.border = "red";
 			return false;
 		}
 		i++;
@@ -141,7 +141,7 @@ function check (choice, gameType) {
 		gameEnded = 1;
 
 		hasWon = true;
-		// console.log("Acertou");
+		console.log("Acertou");
 	} else {
 		distance = calculateDistance (	countries[indexChoice].latitude, countries[indexChoice].longitude, 
 						countryLatitude, countryLongitude);
@@ -161,7 +161,7 @@ function check (choice, gameType) {
 			gameEnded = 1;
 		}
 
-		// console.log("Errou! Chute: " +  choice + " Correto: " + countryName + " Distancia= " + distance);
+		console.log("Errou! Chute: " +  choice + " Correto: " + countryName + " Distancia= " + distance);
 
 	}
 
