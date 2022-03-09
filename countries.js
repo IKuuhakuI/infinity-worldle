@@ -1320,12 +1320,6 @@ const countries = [
     longitude: "-66"
   },
   {
-    country: "VietNam",
-    code: "VN",
-    latitude: "16",
-    longitude: "106"
-  },
-  {
     country: "Vietnam",
     code: "VN",
     latitude: "16",

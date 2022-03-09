@@ -1,0 +1,349 @@
+<html>
+	<head>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<script src="./countries.js" type="text/javascript"></script>
+		<script src="./algorithms.js" type="text/javascript"></script>
+
+		<script>
+			function generateRandomCountry (min = 0, max = countries.length){
+				return Math.floor(Math.random() * (max - min)) + min;
+			}
+
+			google.charts.load(	
+				'current', {
+				'packages':['geochart'],
+      			});
+
+      			google.charts.setOnLoadCallback(drawRegionsMap);
+
+			function drawRegionsMap() {
+				
+				countryIndex = generateRandomCountry();
+
+				countryName = countries[countryIndex].country;
+				countryCode = countries[countryIndex].code;
+				countryLatitude = countries[countryIndex].latitude;
+				countryLongitude = countries[countryIndex].longitude;
+
+				// console.log ("Pais = " + countryName);
+
+				var data = google.visualization.arrayToDataTable([
+					['Country'],
+					[countryName]
+				]);
+				var options = {	region: countryCode, 
+					backgroundColor: {	
+						fill:'#000', 
+					},
+					datalessRegionColor: '#000',
+					displayMode:'regions',
+					defaultColor: '#FFF',
+					enableRegionInteractivity: false
+				};
+
+				var chart = new google.visualization.GeoChart(document.getElementById('regionDiv'));
+				chart.draw(data, options);
+			}
+
+			var guess = 0;
+
+			function checkOnMaps () {
+				url = "https://www.google.com/maps/place/" + countryName;
+				window.open(url, "_blank");
+				
+				return false;
+			}
+
+			function changeInput (guess) {
+				var lockOpt = "option" + guess;
+				nextOpt = guess + 1;
+				var unlockOpt = "option" + nextOpt;
+
+				document.getElementById(lockOpt).disabled = true;
+
+				if (guess != 6) {
+					document.getElementById(unlockOpt).disabled = false;
+				}
+			}
+
+			function endGame () {
+				document.getElementById("correctAnswer").innerHTML = countryName;
+				document.getElementById("btnAgain").hidden = false;
+				document.getElementById("btnCheckOnMaps").hidden = false;
+			}
+
+			function check (choice) {
+				gameEnded = 0;
+				var i = 0;
+				var indexChoice = -1;
+
+				while (i < countries.length) {
+					if (countries[i].country == choice.value){
+						indexChoice = i;
+						break;
+					} else if (i == countries.length - 1){
+						// console.log("Nao tem");
+						return 3;
+					}
+					i++;
+				}
+
+				guess += 1;
+
+
+				if (choice.value == countryName) {
+					for (var i = 1; i < 7; i++) {
+						changeInput(i);
+					}
+
+					currentOption = "option" + guess;
+
+					document.getElementById(currentOption).style.backgroundColor = "green";
+					document.getElementById(currentOption).style.color = "white";
+					document.getElementById(currentOption).style.border = "2px solid white";
+
+					gameEnded = 1;
+					// console.log("Acertou");
+				} else {
+					changeInput (guess);
+					distance = calculateDistance (	countries[indexChoice].latitude, countries[indexChoice].longitude, 
+									countryLatitude, countryLongitude);
+
+					direction = calculateDirection (countries[indexChoice].latitude, countries[indexChoice].longitude,
+									countryLatitude, countryLongitude);
+
+					var currentDist = "dist" + guess;
+
+					// Coloca a distancia e a direcao para o local correto
+					document.getElementById(currentDist).innerHTML = distance + " Km   "
+					+ "<img src =./img/" + direction + " height=15px width=15px>";
+	
+					// Verifica se o jogo acabou
+					if (guess == 6) {
+						gameEnded = 1;
+					}
+
+					// console.log("Errou! Chute: " +  choice + " Correto: " + countryName + " Distancia= " + distance);
+
+				}
+
+				if (gameEnded == 1) {
+					endGame();
+				}
+
+				return false;
+			}
+		</script>
+			
+		<link rel="stylesheet" type="text/css" href="style.css">
+
+	</head>
+
+	<body bgcolor="#000">
+
+		<div class=container>
+			<h1 id="title"> INFINITY WORLDLE </h1>
+		</div>
+
+		<div class=container>
+	    	   	<div id="regionDiv" style="width: 450px; height: 350px;"></div>	
+		</div>
+
+		<!-- 1 -->
+		<div class=container>
+			<form onsubmit="return false">
+			<input name="country" list="listCountries" id="option1"/>
+			<datalist id="listCountries">
+
+				<script type="text/javascript">
+					var selectOpt = '';
+
+					for (var i = 0; i < countries.length; i++) {
+						selectOpt += '<option value ="' + countries[i].country + '"/>';
+					}
+
+					document.getElementById('listCountries').innerHTML = selectOpt;
+				</script>
+			</datalist>
+			<label id="dist1" class="dist">
+
+			</label>
+				<button	type="submit" 
+				style="position: absolute; left:-9999px; width: 1px. height:1px;"
+				tabindex="-1"
+				onclick="check(document.getElementById('option1')).value" />
+
+			</form>
+		</div>
+
+		<!-- 2 -->
+		<div class=container>
+			<form onsubmit="return false">
+			<input name="country" list="listCountries" id="option2" disabled/>
+			<datalist id="listCountries">
+
+				<script type="text/javascript">
+					var selectOpt = '';
+
+					for (var i = 0; i < countries.length; i++) {
+						selectOpt += '<option value ="' + countries[i].country + '"/>';
+					}
+
+					document.getElementById('listCountries').innerHTML = selectOpt;
+				</script>
+			</datalist>
+			<label id="dist2" class="dist"></label>
+			<button	type="submit" 
+				style="position: absolute; left:-9999px; width: 1px. height:1px;"
+				tabindex="-1"
+				onclick="check(document.getElementById('option2')).value" />
+
+			</form>
+		</div>
+
+		<!-- 3 -->
+		<div class=container>
+			<form onsubmit="return false">
+			<input name="country" list="listCountries" id="option3" disabled/>
+			<datalist id="listCountries">
+
+				<script type="text/javascript">
+					var selectOpt = '';
+
+					for (var i = 0; i < countries.length; i++) {
+						selectOpt += '<option value ="' + countries[i].country + '"/>';
+					}
+
+					document.getElementById('listCountries').innerHTML = selectOpt;
+				</script>
+			</datalist>
+			<label id="dist3" class="dist"></label>
+			<button	type="submit" 
+				style="position: absolute; left:-9999px; width: 1px. height:1px;"
+				tabindex="-1"
+				onclick="check(document.getElementById('option3')).value" />
+
+			</form>
+		</div>
+
+		<!-- 4 -->
+		<div class=container>
+			<form onsubmit="return false">
+			<input name="country" list="listCountries" id="option4" disabled/>
+			<datalist id="listCountries">
+
+				<script type="text/javascript">
+					var selectOpt = '';
+
+					for (var i = 0; i < countries.length; i++) {
+						selectOpt += '<option value ="' + countries[i].country + '"/>';
+					}
+
+					document.getElementById('listCountries').innerHTML = selectOpt;
+				</script>
+			</datalist>
+			<label id="dist4" class="dist"></label>
+			<button	type="submit" 
+				style="position: absolute; left:-9999px; width: 1px. height:1px;"
+				tabindex="-1"
+				onclick="check(document.getElementById('option4')).value" />
+
+			</form>
+		</div>
+
+		<!-- 5 -->
+		<div class=container>
+			<form onsubmit="return false">
+			<input name="country" list="listCountries" id="option5" disabled/>
+			<datalist id="listCountries">
+
+				<script type="text/javascript">
+					var selectOpt = '';
+
+					for (var i = 0; i < countries.length; i++) {
+						selectOpt += '<option value ="' + countries[i].country + '"/>';
+					}
+
+					document.getElementById('listCountries').innerHTML = selectOpt;
+				</script>
+			</datalist>
+			<label id="dist5" class="dist"></label>
+			<button	type="submit" 
+				style="position: absolute; left:-9999px; width: 1px. height:1px;"
+				tabindex="-1"
+				onclick="check(document.getElementById('option5')).value" />
+
+			</form>
+		</div>
+
+		<!-- 6 -->
+		<div class=container>
+			<form onsubmit="return false">
+			<input name="country" list="listCountries" id="option6" disabled/>
+			<!--
+			<datalist id="listCountries">
+
+				<script type="text/javascript">
+					var selectOpt = '';
+
+					for (var i = 0; i < countries.length; i++) {
+						selectOpt += '<option value ="' + countries[i].country + '"/>';
+					}
+
+					document.getElementById('listCountries').innerHTML = selectOpt;
+				</script>
+			</datalist>
+			-->
+			<label id="dist6" class="dist"></label>
+			<button	type="submit" 
+				style="position: absolute; left:-9999px; width: 1px. height:1px;"
+				tabindex="-1"
+				onclick="check(document.getElementById('option6')).value" />
+
+			</form>
+		</div>
+
+		<!-- Resposta -->
+		<div class=container>
+			<form onsubmit="return false">
+			<input name="country" list="listCountries" id="answer" />
+			<datalist id="listCountries">
+
+				<script type="text/javascript">
+					var selectOpt = '';
+
+					for (var i = 0; i < countries.length; i++) {
+						selectOpt += '<option value ="' + countries[i].country + '"/>';
+					}
+
+					document.getElementById('listCountries').innerHTML = selectOpt;
+				</script>
+			</datalist>
+			<label id="dist6" class="dist"></label>
+			<button	type="submit" 
+				style="position: absolute; left:-9999px; width: 1px. height:1px;"
+				tabindex="-1"
+				onclick="check(document.getElementById('option6')).value" />
+			</form>
+		</div>
+		
+
+		<div class = container>
+			<form>
+				<label id=correctAnswer>??????</label>
+			</form>
+		</div>
+
+		<!-- Btn Jogar Novamente -->
+		<div class = container>
+			<form>
+				<button type ="submit" id="btnAgain" class="btn" hidden>Jogar novamente</button>
+				<button type="button" id="btnCheckOnMaps" class="btn" onclick="checkOnMaps()" hidden>Olhar no Google Maps!</button>
+			</form>
+		</div>
+
+	</body>
+
+</html>
