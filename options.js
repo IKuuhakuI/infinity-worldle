@@ -1,3 +1,42 @@
+function createCookie (name, value, expires) {
+	// var expires = 'expires=Thu, 28 Oct 2100 00:00:00 UTC';
+	document.cookie = name + "=" + value + ";" + expires;
+}
+
+function readCookie (name) {
+	var vName = name + "=";
+	var ca = document.cookie.split(';');
+
+	for (var i = 0; i < ca.length; i++) {
+		var c = ca[i];
+		while (c.charAt(0) == ' ') {
+			c = c.substring(1);
+		}
+		if (c.indexOf(vName) == 0) return c.substring(vName.length, c.length);
+	}
+
+	return "";
+}
+
+function validateCookie () {
+	var getRecorde = readCookie ("Recorde");
+
+	if (getRecorde != "") {
+		alert ("Recorde " + getRecorde);
+		return getRecorde;
+	} 
+
+	createCookie ("Recorde", 0, " expires=Thu, 28 Oct 2100 00:00:00 UTC ");
+	alert ("Cookie criado");
+	return 0;
+}
+
+function updateCookie (hasWon) {
+	if (hasWon == true) {
+		currentRecord = validateCookie() + 1;
+		createCookie ("Recorde", currentRecord, " expires=Thu, 28 Oct 2100 00:00:00 UTC ");
+	}
+}
 function drawOptions() {
 
 	for (var i = 1; i <= 6; i++) {
@@ -81,6 +120,7 @@ function check (choice) {
 }
 
 function endGame (hasWon) {
+	updateCookie(hasWon);
 	document.getElementById("answer").disabled = true;
 	document.getElementById("answer").style.color = "white"
 	document.getElementById("answer").style.border = "2px solid white"
