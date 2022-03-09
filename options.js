@@ -49,7 +49,7 @@ function updateCookies (hasWon, gameType) {
 		createCookie (gamesWon, cookieList[0].gamesWon, " expires=Thu, 28 Oct 2100 00:00:00 UTC ");		
 		createCookie (currentStreak, cookieList[0].currentStreak, " expires=Thu, 28 Oct 2100 00:00:00 UTC ");
 
-		if (cookielist[0].maxStreak < cookieList[0].currentStreak) {
+		if (cookieList[0].maxStreak < cookieList[0].currentStreak) {
 			createCookie (maxStreak, cookieList[0].currentStreak, " expires=Thu, 28 Oct 2100 00:00:00 UTC ");
 		}
 	} else {
