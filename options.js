@@ -22,12 +22,10 @@ function validateCookie () {
 	var getRecorde = readCookie ("Recorde");
 
 	if (getRecorde != "") {
-		alert ("Recorde " + getRecorde);
 		return getRecorde;
 	} 
 
 	createCookie ("Recorde", 0, " expires=Thu, 28 Oct 2100 00:00:00 UTC ");
-	alert ("Cookie criado");
 	return 0;
 }
 
