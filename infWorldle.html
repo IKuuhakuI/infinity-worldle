@@ -61,7 +61,7 @@
 		</script>			
 	</head>
 
-	<body onload="validateCookie()">
+	<body onload="cookieList=setGameType('infWorldle')">
 		<div class="main-menu">
 			<ul>
 				<a href="index.html">
@@ -119,7 +119,7 @@
 			<button	type="submit" 
 				style="position: absolute; left:-9999px; width: 1px. height:1px;"
 				tabindex="-1"
-				onclick="check(document.getElementById('answer')).value" />
+				onclick="check(document.getElementById('answer'), 'infWorldle').value" />
 			</form>
 		</div>
 		

@@ -18,23 +18,76 @@ function readCookie (name) {
 	return "";
 }
 
-function validateCookie () {
-	var getRecorde = readCookie ("Recorde");
+function validateCookie (cookieName) {
 
-	if (getRecorde != "") {
-		return getRecorde;
+	var getCookie = readCookie (cookieName);
+
+	if (getCookie != "") {
+		return getCookie;
 	} 
 
-	createCookie ("Recorde", 0, " expires=Thu, 28 Oct 2100 00:00:00 UTC ");
+	createCookie (cookieName, 0, " expires=Thu, 28 Oct 2100 00:00:00 UTC ");
 	return 0;
 }
 
-function updateCookie (hasWon) {
+function updateCookies (hasWon, gameType) {
+	gamesPlayed = gameType + 'Played';
+	gamesWon = gameType + 'Won';
+	currentStreak = gameType + 'CurrentStreak';
+	maxStreak = gameType + 'MaxStreak';
+
+	cookieList = setGameType (gameType);	
+
+	cookieList.gamesPlayed = parseInt (cookieList[0].gamesPlayed) + 1;
+	cookieList.gamesPlayed = parseInt (cookieList[0].gamesPlayed) + 1;
+
 	if (hasWon == true) {
-		currentRecord = parseInt(validateCookie()) + 1;
-		createCookie ("Recorde", currentRecord, " expires=Thu, 28 Oct 2100 00:00:00 UTC ");
+		cookieList[0].gamesWon = parseInt (cookieList[0].gamesWon) + 1;
+		cookieList[0].currentStreak = parseInt (cookieList[0].currentStreak) + 1;
+		cookieList[0].maxStreak = parseInt (cookieList[0].maxStreak);
+
+		createCookie (gamesWon, cookieList[0].gamesWon, " expires=Thu, 28 Oct 2100 00:00:00 UTC ");		
+		createCookie (currentStreak, cookieList[0].currentStreak, " expires=Thu, 28 Oct 2100 00:00:00 UTC ");
+
+		if (cookielist[0].maxStreak < cookieList[0].currentStreak) {
+			createCookie (maxStreak, cookieList[0].currentStreak, " expires=Thu, 28 Oct 2100 00:00:00 UTC ");
+		}
+	} else {
+		createCookie (currentStreak, 0, " expires=Thu, 28 Oct 2100 00:00:00 UTC ");
 	}
 }
+
+function setGameType (gameType) {
+	var gamesPlayed;
+	var gamesWon;
+	var currentStreak;
+	var maxStreak;
+
+	gamesPlayed = gameType + 'Played';
+	gamesWon = gameType + 'Won';
+	currentStreak = gameType + 'CurrentStreak';
+	maxStreak = gameType + 'MaxStreak';
+
+	valueGamesPlayed = validateCookie (gamesPlayed);
+	valueGamesWon = validateCookie (gamesWon);
+	valueCurrentStreak = validateCookie (currentStreak);
+	valueMaxStreak = validateCookie (maxStreak);
+	
+	cookieList = [{
+		gamesPlayed: valueGamesPlayed,
+		gamesWon: valueGamesWon,
+		currentStreak: valueCurrentStreak,
+		maxStreak: valueMaxStreak
+	}];
+
+	alert ("Jogos jogados: " + valueGamesPlayed + "\n"
+		+ "Jogos vencidos: " + valueGamesWon + "\n"
+		+ "Sequencia atual: " + valueCurrentStreak + "\n"
+		+ "Maior sequencia: " + valueMaxStreak);
+
+	return cookieList;
+}
+
 function drawOptions() {
 
 	for (var i = 1; i <= 6; i++) {
@@ -54,7 +107,7 @@ function checkOnMaps () {
 		return false;
 }
 
-function check (choice) {
+function check (choice, gameType) {
 	gameEnded = 0;
 	var i = 0;
 	var indexChoice = -1;
@@ -111,14 +164,15 @@ function check (choice) {
 	}
 
 	if (gameEnded == 1) {
-		endGame(hasWon);
+		endGame(hasWon, gameType);
 	}
 
 	return false;
 }
 
-function endGame (hasWon) {
-	updateCookie(hasWon);
+function endGame (hasWon, gameType) {
+	updateCookies(hasWon, cookieList);
+
 	document.getElementById("answer").disabled = true;
 	document.getElementById("answer").style.color = "white"
 	document.getElementById("answer").style.border = "2px solid white"
