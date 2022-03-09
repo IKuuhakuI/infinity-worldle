@@ -141,7 +141,7 @@ function check (choice, gameType) {
 		gameEnded = 1;
 
 		hasWon = true;
-		console.log("Acertou");
+		// console.log("Acertou");
 	} else {
 		distance = calculateDistance (	countries[indexChoice].latitude, countries[indexChoice].longitude, 
 						countryLatitude, countryLongitude);
@@ -161,7 +161,7 @@ function check (choice, gameType) {
 			gameEnded = 1;
 		}
 
-		console.log("Errou! Chute: " +  choice + " Correto: " + countryName + " Distancia= " + distance);
+		// console.log("Errou! Chute: " +  choice + " Correto: " + countryName + " Distancia= " + distance);
 
 	}
 
