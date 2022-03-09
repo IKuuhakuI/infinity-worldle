@@ -1,5 +1,8 @@
 <html>
 	<head>
+		<title>Infnity Worldle</title>
+		<meta charset="UTF-8">
+
 		<!-- API de mapas -->
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
@@ -10,6 +13,8 @@
 
 		<!-- CSS -->
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" href="menu.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 		<script>
 
@@ -37,9 +42,9 @@
 				]);
 				var options = {	region: countryCode, 
 					backgroundColor: {	
-						fill:'#000', 
+						fill:'#252839', 
 					},
-					datalessRegionColor: '#000',
+					datalessRegionColor: '#252839',
 					displayMode:'regions',
 					defaultColor: '#FFF',
 					enableRegionInteractivity: false
@@ -53,7 +58,17 @@
 		</script>			
 	</head>
 
-	<body bgcolor="#000">
+	<body>
+		<div class="main-menu">
+			<ul>
+				<li class="menu-item"><i class="fa fa-home"></i>INICIO</li>
+				<li class="menu-item"><i class="fa fa-globe"></i>WORLDLE</li>
+				<li class="menu-item"><i class="fa fa-github"></i>GITHUB</li>
+				<li class="menu-item"><i class="fa fa-wrench"></i>EM BREVE</li>
+				<li class="menu-item"><i class="fa fa-wrench"></i>EM BREVE</li>
+				<li class="menu-item"><i class="fa fa-wrench"></i>EM BREVE</li>
+			</ul>
+		</div>
 
 		<div class=container>
 			<h1 id="title"> INFINITY WORLDLE </h1>
