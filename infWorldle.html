@@ -16,6 +16,40 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 		<script>
+			function createCookie (name, value, expires) {
+				// var expires = 'expires=Thu, 28 Oct 2100 00:00:00 UTC';
+				document.cookie = name + "=" + value + ";" + expires;
+			}
+
+			function readCookie (name) {
+				var vName = name + "=";
+				var ca = document.cookie.split(';');
+			
+				for (var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') {
+						c = c.substring(1);
+					}
+					if (c.indexOf(vName) == 0) return c.substring(vName.length, c.length);
+				}
+
+				return "";
+			}
+
+			function validateCookie () {
+				var getRecorde = readCookie ("Recorde");
+
+				if (getRecorde != "") {
+					alert ("Recorde " + getRecorde);
+				} else {
+					createCookie ("Recorde", 0, " expires=Thu, 28 Oct 2100 00:00:00 UTC ");
+					alert ("Cookie criado");
+				}
+			}
+
+		</script>
+
+		<script>
 
 			google.charts.load(	
 				'current', {
@@ -57,7 +91,7 @@
 		</script>			
 	</head>
 
-	<body>
+	<body onload="validateCookie()">
 		<div class="main-menu">
 			<ul>
 				<a href="index.html">
@@ -90,8 +124,7 @@
 	    	   	<div id="regionDiv" style="width: 450px; height: 350px; z-index: 999px;"></div>	
 		</div>
 
-		<div id="options">
-		</div>
+		<div id="options"></div>
 
 		<script> drawOptions() </script>
 
