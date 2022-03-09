@@ -173,7 +173,7 @@ function check (choice, gameType) {
 }
 
 function endGame (hasWon, gameType) {
-	updateCookies(hasWon, cookieList);
+	updateCookies(hasWon, gameType);
 
 	document.getElementById("answer").disabled = true;
 	document.getElementById("answer").style.color = "white"
