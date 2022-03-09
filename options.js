@@ -33,7 +33,7 @@ function validateCookie () {
 
 function updateCookie (hasWon) {
 	if (hasWon == true) {
-		currentRecord = validateCookie() + 1;
+		currentRecord = parseInt(validateCookie()) + 1;
 		createCookie ("Recorde", currentRecord, " expires=Thu, 28 Oct 2100 00:00:00 UTC ");
 	}
 }
