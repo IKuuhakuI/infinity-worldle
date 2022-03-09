@@ -38,8 +38,8 @@ function updateCookies (hasWon, gameType) {
 
 	cookieList = setGameType (gameType);	
 
-	cookieList.gamesPlayed = parseInt (cookieList[0].gamesPlayed) + 1;
-	cookieList.gamesPlayed = parseInt (cookieList[0].gamesPlayed) + 1;
+	cookieList[0].gamesPlayed = parseInt (cookieList[0].gamesPlayed) + 1;
+	createCookie (gamesPlayed, cookieList[0].gamesPlayed, " expires=Thu, 28 Oct 2100 00:00:00 UTC ");		
 
 	if (hasWon == true) {
 		cookieList[0].gamesWon = parseInt (cookieList[0].gamesWon) + 1;
