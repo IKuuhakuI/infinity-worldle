@@ -207,3 +207,54 @@ label {
 	z-index: 1;
 }
 
+.boxDir {
+	border: 2px solid white;
+	width: 60px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: transparent;
+	justify-content: center;
+	display: flex;
+	height: 30px;
+}
+
+.boxDist {
+	border: 2px solid white;
+	width: 140px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: transparent;
+	justify-content: center;
+	display: flex;
+	height: 30px;
+}
+
+.boxDist h3 {
+	color: white;
+	font-size: 25px;
+	margin-top: 1px;
+}
+
+.loadbar {
+	border: 2px solid white;
+	width: 350px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: transparent;
+	justify-content: center;
+	display: flex;
+	height: 30px;
+}
+
+.loadbar .bar {
+	width: 30px;
+	height: 30px;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.loadbar h3 {
+	color: white;
+	font-size: 25px;
+	margin-top: 1px;
+}
