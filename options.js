@@ -95,7 +95,7 @@ function showStats (gameType) {
 }
 
 function drawOptions() {
-
+	/*
 	for (var i = 1; i <= 6; i++) {
 	document.getElementById("options").innerHTML +=   '<div class=container>'
 							+ '<form onsubmit="return false">'
@@ -103,7 +103,24 @@ function drawOptions() {
 							+ '<label id="dist' + i + '" class="dist"></label>'
 							+ '</form></div>';
 	}
-
+		*/
+	for (var i = 1; i <= 6; i++) {
+	document.getElementById("options").innerHTML +=   '<div class=container>'
+							+ '<div class="loadbar" id="option' + i + '">'
+							+ '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">'
+							+ '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">'
+							+ '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">'
+							+ '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">'
+							+ '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">'
+							+ '</div>'
+							+ '<div class="boxDist">'
+							+ '<h3 id="dist' + i + '"></h3>'
+							+ '</div>'
+							+ '<div class="boxDir">'
+							+ '<img class="imgDir" id="dir' + i + '">'
+							+ '</div>'
+							+ '</div>';	
+	}
 }
 
 function checkOnMaps () {
@@ -156,10 +173,11 @@ function check (choice, gameType) {
 						countryLatitude, countryLongitude);
 
 		var currentDist = "dist" + guess;
+		var currentDir = "dir" + guess;
 
 		// Coloca a distancia e a direcao para o local correto
-		document.getElementById(currentDist).innerHTML = distance + " Km   "
-		+ "<img src =./img/" + direction + " height=15px width=15px>";
+		document.getElementById(currentDist).innerHTML = distance + " km";
+		document.getElementById(currentDir).src = "./img/" + direction;
 
 		// Verifica se o jogo acabou
 		if (guess == 6) {
