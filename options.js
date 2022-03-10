@@ -46,6 +46,8 @@ function updateCookies (hasWon, gameType) {
 		cookieList[0].currentStreak = parseInt (cookieList[0].currentStreak) + 1;
 		cookieList[0].maxStreak = parseInt (cookieList[0].maxStreak);
 
+		console.log("aqui");
+
 		createCookie (gamesWon, cookieList[0].gamesWon, " expires=Thu, 28 Oct 2100 00:00:00 UTC ");		
 		createCookie (currentStreak, cookieList[0].currentStreak, " expires=Thu, 28 Oct 2100 00:00:00 UTC ");
 
@@ -87,7 +89,7 @@ function showStats (gameType) {
 	cookieList = setGameType (gameType);
 
 	document.getElementById("content1").innerHTML = "Jogos jogados: " + cookieList[0].gamesPlayed
-							+ "<br><br>Jogos vencidos: " + cookieList[0].gamesPlayed
+							+ "<br><br>Jogos vencidos: " + cookieList[0].gamesWon
 							+ "<br><br>Sequência de vitórias atual: " + cookieList[0].currentStreak
 							+ "<br><br>Maior sequência de vitórias: " + cookieList[0].maxStreak;
 }
