@@ -137,7 +137,6 @@
 			<input name="country" id="answer" list="listCountries"
 			placeholder="Digite a sua repsosta..."/>
 			<datalist id="listCountries">
-
 				<script type="text/javascript">
 						var selectOpt = '';
 
@@ -155,7 +154,6 @@
 				onclick="check(document.getElementById('answer'), 'infWorldle')" />
 			</form>
 		</div>
-		
 
 		<div class = container>
 			<form>
@@ -165,12 +163,10 @@
 
 		<!-- Btn Jogar Novamente -->
 		<div class = container>
-			<form>
-				<button type ="submit" id="btnAgain" class="btn" hidden>Jogar novamente</button>
-				<button type="button" id="btnCheckOnMaps" class="btn" onclick="checkOnMaps()" hidden>
+				<button id="btnAgain" class="btn" onclick="window.location.reload();" hidden>Jogar novamente</button>
+				<button type="button" id="btnCheckOnMaps" style="margin-left: 10px;" class="btn" onclick="checkOnMaps()" hidden>
 					Olhar no Google Maps!
 				</button>
-			</form>
 		</div>
 
 	</body>
