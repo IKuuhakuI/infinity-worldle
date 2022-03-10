@@ -80,12 +80,16 @@ function setGameType (gameType) {
 		maxStreak: valueMaxStreak
 	}];
 
-	alert ("Jogos jogados: " + valueGamesPlayed + "\n"
-		+ "Jogos vencidos: " + valueGamesWon + "\n"
-		+ "Sequencia atual: " + valueCurrentStreak + "\n"
-		+ "Maior sequencia: " + valueMaxStreak);
-
 	return cookieList;
+}
+
+function showStats (gameType) {
+	cookieList = setGameType (gameType);
+
+	document.getElementById("content1").innerHTML = "Jogos jogados: " + cookieList[0].gamesPlayed
+							+ "<br><br>Jogos vencidos: " + cookieList[0].gamesPlayed
+							+ "<br><br>Sequência de vitórias atual: " + cookieList[0].currentStreak
+							+ "<br><br>Maior sequência de vitórias: " + cookieList[0].maxStreak;
 }
 
 function drawOptions() {
@@ -109,8 +113,8 @@ function checkOnMaps () {
 
 function check (choice, gameType) {
 
-	console.log (gameType);
-	console.log (choice);
+	//console.log (gameType);
+	//console.log (choice);
 	gameEnded = 0;
 	var i = 0;
 	var indexChoice = -1;

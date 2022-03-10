@@ -61,29 +61,62 @@
 		</script>			
 	</head>
 
-	<body onload="cookieList=setGameType('infWorldle')">
+	<body onload="setGameType('infWorldle')">
 		<div class="main-menu">
 			<ul>
-				<a href="index.html">
-					<li class="menu-item"><i class="fa fa-home"></i>INICIO</li>
-				</a>
-				<a href="infWorldle.html">
-					<li class="menu-item" style="--clr:#00ade1"><i class="fa fa-globe"></i>WORLDLE</li>
-				</a>
+				<section id="gameOptions">
+					<a href="#popup1">
+					<li class="menu-item" style="--clr:#6382cc"><i class="fa fa-line-chart"></i>ESTATÍSTICAS</li>
+					</a>
+					<a href="#popup2">
+					<li class="menu-item" style="--clr:#6382cc"><i class="fa fa-question-circle"></i>COMO JOGAR</li>
+					</a>
+				</section>
+				<section id="others">
+					<a href="index.html">
+						<li class="menu-item" style="--clr:#6382cc"><i class="fa fa-home"></i>INICIO</li>
+					</a>
+					<a href="infWorldle.html">
+						<li class="menu-item" style="--clr:#6382cc"><i class="fa fa-globe"></i>WORLDLE</li>
+					</a>
 
-				<a href="https://github.com/IKuuhakuI/infinity-worldle">
-					<li class="menu-item" style="--clr:#ff6493"><i class="fa fa-github"></i>GITHUB</li>
-				</a>
-				<a href="#">
-					<li class="menu-item" style="--clr:#ffdd1c"><i class="fa fa-wrench"></i>EM BREVE</li>
-				</a>
-				<a href="#">
-					<li class="menu-item" style="--clr:#00dc82"><i class="fa fa-wrench"></i>EM BREVE</li>
-				</a>
-				<a href="#">
-					<li class="menu-item" style="--clr:#dc00d4"><i class="fa fa-wrench"></i>EM BREVE</li>
-				</a>
+					<a href="https://github.com/IKuuhakuI/infinity-worldle">
+						<li class="menu-item" style="--clr:#6382cc"><i class="fa fa-github"></i>GITHUB</li>
+					</a>
+					<a href="#">
+						<li class="menu-item" style="--clr:#6382cc"><i class="fa fa-wrench"></i>EM BREVE</li>
+					</a>
+					<a href="#">
+						<li class="menu-item" style="--clr:#6382cc"><i class="fa fa-wrench"></i>EM BREVE</li>
+					</a>
+					<a href="#">
+						<li class="menu-item" style="--clr:#6382cc"><i class="fa fa-wrench"></i>EM BREVE</li>
+					</a>
+				</section>
 			</ul>
+		</div>
+
+		<div id="popup1" class="overlay">
+			<div class="popup">
+				<h2>Estatísticas</h2>
+				<a class="close" href="#">&times</a>
+				<div class="content" id="content1">
+				</div>
+				<script>
+					showStats('infWorldle');
+				</script>
+			</div>
+		</div>
+		<div id="popup2" class="overlay">
+			<div class="popup">
+				<h2>Como Jogar</h2>
+				<a class="close" href="#">&times</a>
+				<div class="content">
+					O jogo irá mostrar um mapa de um território/país do mundo.
+					<br>O jogador terá 6 chances de acertar qual o local!
+				</div>
+				
+			</div>
 		</div>
 
 		<div class=container>

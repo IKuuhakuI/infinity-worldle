@@ -40,6 +40,7 @@ a {
 .main-menu .menu-item {
 	padding: 12px;
 	color: white;
+	font-size: 20px;
 }
 
 .main-menu .menu-item:hover {
@@ -57,6 +58,10 @@ a {
 
 .main-menu .menu-item:hover > .fa {
 	color: #37577d;
+}
+
+section#gameOptions {
+	background-color: #304575;
 }
 
 ::-webkit-scrollbar {
@@ -130,3 +135,75 @@ label {
 	color: white;
 	margin-left: 10px;
 }
+
+.overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0,0,0,0.7);
+	transition: opacity 500ms;
+	visibility: hidden;
+	opacity: 0;
+}
+
+.overlay:target {
+	visibility: visible;
+	opacity: 1;
+}
+
+.popup {
+	margin: 70px auto;
+	padding: 20px;
+	background: #fff;
+	border-radius: 5px;
+	width: 30%;
+	position: relative;
+	transition: all 5s ease-in-out;
+	background-color: #304575;
+}
+
+.popup h2 {
+	margin-top: 0;
+	text-align: center;
+	color: #fff;
+	font-family: arial, helvetica, sans-serif;
+}
+
+.popup .close {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	transition: all 200ms;
+	font-size: 30px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #fff;	
+}
+
+.popup .close:hover {
+	color: red;
+}
+
+.popup .content {
+	overflow: auto;
+	color: #fff;
+	margin-top: 10px;
+}
+
+@media screen and (max-width: 700px) {
+	.box{
+		width: 70%;
+	}
+
+	.popup {
+		width: 70%;
+	}
+}
+
+#popup1, #popup2{
+	text-align: center;
+	z-index: 1;
+}
+
