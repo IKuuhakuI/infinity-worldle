@@ -198,8 +198,13 @@ function check (choice, gameType) {
 
 	currentOption = "option" + guess;
 	currentOptionBar = "optionBar" + guess;
+	currentText = "text" + guess;
 
-	document.getElementById(currentOption).innerHTML += '<h3>' + choice.value + '</h3>';
+	document.getElementById(currentOption).innerHTML += '<h3 id="' + currentText + '">' + choice.value + '</h3>';
+	console.log (choice.value.length);
+	if (choice.value.length > 33) {
+		document.getElementById(currentText).style = "font-size: 15px;";
+	}
 
 	var currentDist = "dist" + guess;
 	var currentDir = "dir" + guess;
