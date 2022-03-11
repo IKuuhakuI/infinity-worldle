@@ -237,13 +237,14 @@ function check (choice, gameType) {
 
 		var percentage = calculatePercentage (distance);
 
-		setOptionBar (currentOptionBar);
+		setOptionBar (currentOptionBar, percentage);
 
 		// Coloca a distancia e a direcao para o local correto
 		document.getElementById(currentDist).innerHTML = distance + " km";
 		document.getElementById(currentDir).src = "./img/" + direction;
 		document.getElementById(currentPercentage).innerHTML = '<h3>' + percentage + '%</h3>';
 
+		document.getElementById("answer").value = "";
 		// Verifica se o jogo acabou
 		if (guess == 6) {
 			hasWon = false;
