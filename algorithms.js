@@ -62,3 +62,12 @@ function calculateDirection(choiceLat, choiceLon, realLat, realLon) {
 		}
 	} 
 }
+
+function calculatePercentage (distance) {
+	// 20000 = 0% | 0 = 100%
+	maxDist = 20000;	
+
+	percentage = ((maxDist - distance) / maxDist) * 100; 
+
+	return Math.round(percentage);
+}

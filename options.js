@@ -116,7 +116,7 @@ function drawOptions() {
 							+ '<div class="boxDir">'
 							+ '<img class="imgDir" id="dir' + i + '">'
 							+ '</div>'
-							+ '<div class="boxPercent">'
+							+ '<div class="boxPercent" id="percent' + i + '">'
 							+ '</div>'
 							+ '</div>';	
 	}
@@ -128,6 +128,7 @@ function checkOnMaps () {
 				
 		return false;
 }
+
 
 function check (choice, gameType) {
 
@@ -156,6 +157,8 @@ function check (choice, gameType) {
 
 	var currentDist = "dist" + guess;
 	var currentDir = "dir" + guess;
+	var currentPercentage = "percent" + guess;
+
 
 	document.getElementById (currentOptionBar).innerHTML += '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">'
 							+ '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">'
@@ -170,6 +173,10 @@ function check (choice, gameType) {
 
 		document.getElementById(currentDist).innerHTML = "0 km";
 
+		document.getElementById(currentDir).src = "./img/win.png";
+
+		document.getElementById(currentPercentage).innerHTML = '<h3>' + 100 + '%</h3>';
+
 		gameEnded = 1;
 
 		hasWon = true;
@@ -181,10 +188,12 @@ function check (choice, gameType) {
 		direction = calculateDirection (countries[indexChoice].latitude, countries[indexChoice].longitude,
 						countryLatitude, countryLongitude);
 
+		var percentage = calculatePercentage (distance);
 
 		// Coloca a distancia e a direcao para o local correto
 		document.getElementById(currentDist).innerHTML = distance + " km";
 		document.getElementById(currentDir).src = "./img/" + direction;
+		document.getElementById(currentPercentage).innerHTML = '<h3>' + percentage + '%</h3>';
 
 		// Verifica se o jogo acabou
 		if (guess == 6) {
@@ -193,7 +202,6 @@ function check (choice, gameType) {
 		}
 
 		// console.log("Errou! Chute: " +  choice + " Correto: " + countryName + " Distancia= " + distance);
-
 	}
 
 	if (gameEnded == 1) {
