@@ -129,6 +129,52 @@ function checkOnMaps () {
 		return false;
 }
 
+function setOptionBar (currentOptionBar, percentage) {
+	green = "https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg";
+	yellow = "https://abs-0.twimg.com/emoji/v2/svg/1f7e8.svg";
+	red = "https://abs-0.twimg.com/emoji/v2/svg/1f7e5.svg";
+
+	if (percentage < 20) {
+		document.getElementById (currentOptionBar).innerHTML += 
+							'<img class="bar" src="' + yellow +'">'
+							+ '<img class="bar" src="' + red +'">'
+							+ '<img class="bar" src="' + red +'">'
+							+ '<img class="bar" src="' + red +'">'
+							+ '<img class="bar" src="' + red +'">';
+
+	} else if (percentage < 40) {
+		document.getElementById (currentOptionBar).innerHTML += 
+							'<img class="bar" src="' + green +'">'
+							+ '<img class="bar" src="' + yellow +'">'
+							+ '<img class="bar" src="' + red +'">'
+							+ '<img class="bar" src="' + red +'">'
+							+ '<img class="bar" src="' + red +'">';
+
+	} else if (percentage < 60) {
+		document.getElementById (currentOptionBar).innerHTML += 
+							'<img class="bar" src="' + green +'">'
+							+ '<img class="bar" src="' + green +'">'
+							+ '<img class="bar" src="' + yellow +'">'
+							+ '<img class="bar" src="' + red +'">'
+							+ '<img class="bar" src="' + red +'">';
+
+	} else if (percentage < 80) {
+		document.getElementById (currentOptionBar).innerHTML += 
+							'<img class="bar" src="' + green +'">'
+							+ '<img class="bar" src="' + green +'">'
+							+ '<img class="bar" src="' + green +'">'
+							+ '<img class="bar" src="' + yellow +'">'
+							+ '<img class="bar" src="' + red +'">';
+
+	} else {
+		document.getElementById (currentOptionBar).innerHTML += 
+							'<img class="bar" src="' + green +'">'
+							+ '<img class="bar" src="' + green +'">'
+							+ '<img class="bar" src="' + green +'">'
+							+ '<img class="bar" src="' + green +'">'
+							+ '<img class="bar" src="' + yellow +'">';
+	} 
+}
 
 function check (choice, gameType) {
 
@@ -160,11 +206,6 @@ function check (choice, gameType) {
 	var currentPercentage = "percent" + guess;
 
 
-	document.getElementById (currentOptionBar).innerHTML += '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">'
-							+ '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">'
-							+ '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">'
-							+ '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">'
-							+ '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">';
 	if (choice.value == countryName) {
 
 		document.getElementById(currentOption).style.backgroundColor = "green";
@@ -176,6 +217,12 @@ function check (choice, gameType) {
 		document.getElementById(currentDir).src = "./img/win.png";
 
 		document.getElementById(currentPercentage).innerHTML = '<h3>' + 100 + '%</h3>';
+		document.getElementById (currentOptionBar).innerHTML += 
+							'<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">'
+							+ '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">'
+							+ '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">'
+							+ '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">'
+							+ '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">';
 
 		gameEnded = 1;
 
@@ -189,6 +236,8 @@ function check (choice, gameType) {
 						countryLatitude, countryLongitude);
 
 		var percentage = calculatePercentage (distance);
+
+		setOptionBar (currentOptionBar);
 
 		// Coloca a distancia e a direcao para o local correto
 		document.getElementById(currentDist).innerHTML = distance + " km";
@@ -222,7 +271,6 @@ function endGame (hasWon, gameType) {
 	} else {
 		document.getElementById("answer").style.backgroundColor = "red"
 	}
-	document.getElementById("correctAnswer").innerHTML = countryName;
 	document.getElementById("btnAgain").hidden = false;
 	document.getElementById("btnCheckOnMaps").hidden = false;
 }
