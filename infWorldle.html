@@ -171,11 +171,15 @@
 
 		<!-- Botoes -->
 		<div class = container>
-				<button id="btnAgain" class="btn" onclick="window.location.reload();" hidden>
+				<button id="btnAgain" class="btn" 
+				style="--clr: #dc00d4; --clr-h:#b200ac; --clr-a:#860081;" 
+				onclick="window.location.reload()" hidden>
 					<span class="button-text">Jogar novamente</span>
-					<span class="button-icon"><i class="fa fa-wrench"></i></span>
+					<span class="button-icon"><i class="fa fa-refresh"></i></span>
 				</button>
-				<button type="button" id="btnCheckOnMaps" style="margin-left: 10px;" class="btn" onclick="checkOnMaps()" hidden>
+				<button type="button" id="btnCheckOnMaps" 
+					style="margin-left: 10px; --clr: #00dc82; --clr-h:#009e5d; --clr-a: #036c41;" class="btn" 
+					onclick="checkOnMaps()" hidden>
 					<span class="button-text">Olhar no Google Maps!</span>
 					<span class="button-icon"><i class="fa fa-map-marker"></i></span>
 				</button>

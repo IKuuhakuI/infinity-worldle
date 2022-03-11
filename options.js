@@ -278,6 +278,6 @@ function endGame (hasWon, gameType) {
 	} else {
 		document.getElementById("answer").style.backgroundColor = "red"
 	}
-	document.getElementById("btnAgain").hidden = false;
-	document.getElementById("btnCheckOnMaps").hidden = false;
+	document.getElementById("btnAgain").style.visibility = "visible";
+		document.getElementById("btnCheckOnMaps").style.visibility = "visible";
 }

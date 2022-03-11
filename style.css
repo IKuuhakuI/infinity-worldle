@@ -111,7 +111,7 @@ input:disabled {
 	display: inline-flex;
 	height: 50px;
 	padding: 0;
-	background: #009578;
+	background-color: var(--clr);
 	border: none;
 	outline: none;
 	border-radius: 5px;
@@ -122,10 +122,14 @@ input:disabled {
 }
 
 .btn:hover {
-	background-color: #008168;
+	background-color: var(--clr-h);
 }
 .btn:active {
-	background-color: #006e58;
+	background-color: var(--clr-a);
+}
+
+#btnAgain, #btnCheckOnMaps {
+	visibility: hidden;
 }
 
 .button-text, .button-icon {
