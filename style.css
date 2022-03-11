@@ -108,23 +108,39 @@ input:disabled {
 }
 
 .btn {
-	background-color: white;
-	color: black;
-	font-family: Arial, Helvetica, sans-serif;
+	display: inline-flex;
+	height: 50px;
+	padding: 0;
+	background: #009578;
 	border: none;
-	padding: 5px;
-}
-
-.btn:hover {
-	background-color: gray;
-	color: white;
+	outline: none;
+	border-radius: 5px;
+	overflow: hidden;
+	font-size: 16px;
+	font-weight: 500;
 	cursor: pointer;
 }
 
-.btn:active {
-	background-color: black;
-	color: white;
+.btn:hover {
+	background-color: #008168;
 }
+.btn:active {
+	background-color: #006e58;
+}
+
+.button-text, .button-icon {
+	display: inline-flex;
+	align-items: center;
+	padding: 0 24px;
+	color: #fff;
+	height: 100%;
+}
+
+.button-icon {
+	font-size: 1.5em;
+	background-color: rgba(0,0,0,0.08);
+}
+
 
 h1{
 	font-family: Arial, Helvetica, sans-serif;
