@@ -1,28 +1,45 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="style.css">
+
+		<style>
+			.bar {
+				margin-left: 5px;
+				margin-right: 5px;
+			}
+
+			#country1 {
+				display: none;
+				visibility: hidden;
+				animation: show-text ease 6s forwards;
+			}
+			
+			
+		</style>
 	</head>
 	
 	<body>
 		<div class="container">
-			<div class="loadbar">
+			<div class="loadbar" id="load1">
 				<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">
 				<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">
 				<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">
 				<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">
 				<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">
 			</div>
-			
-			<!--
-			<div class="loadbar">
-				<h3> United Arab Emirates </h3>
+
+			<div class="countryBar" id="">
+				<h3>Brazil</h3>	
 			</div>
-			-->
+
 			<div class="boxDist">
 				<h3> 20000 km </h3>
 			</div>
 			<div class="boxDir">
 				<img class="imgDir" src="./img/cd.png">
+			</div>
+			<div class="boxPercent">
+				<h3> 100% </h3>
 			</div>
 		</div>
 	</body>

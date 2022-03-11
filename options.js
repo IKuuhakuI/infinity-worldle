@@ -106,18 +106,17 @@ function drawOptions() {
 		*/
 	for (var i = 1; i <= 6; i++) {
 	document.getElementById("options").innerHTML +=   '<div class=container>'
-							+ '<div class="loadbar" id="option' + i + '">'
-							+ '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">'
-							+ '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">'
-							+ '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">'
-							+ '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">'
-							+ '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">'
+							+ '<div class="loadbar" id="optionBar' + i + '">'
+							+ '</div>'
+							+ '<div class="countryBar" id="option' + i + '">'
 							+ '</div>'
 							+ '<div class="boxDist">'
 							+ '<h3 id="dist' + i + '"></h3>'
 							+ '</div>'
 							+ '<div class="boxDir">'
 							+ '<img class="imgDir" id="dir' + i + '">'
+							+ '</div>'
+							+ '<div class="boxPercent">'
 							+ '</div>'
 							+ '</div>';	
 	}
@@ -151,15 +150,25 @@ function check (choice, gameType) {
 	guess += 1;
 
 	currentOption = "option" + guess;
+	currentOptionBar = "optionBar" + guess;
 
-	document.getElementById(currentOption).setAttribute('value', choice.value);
-	document.getElementById("answer").setAttribute('value', "");
+	document.getElementById(currentOption).innerHTML += '<h3>' + choice.value + '</h3>';
 
+	var currentDist = "dist" + guess;
+	var currentDir = "dir" + guess;
+
+	document.getElementById (currentOptionBar).innerHTML += '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">'
+							+ '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">'
+							+ '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">'
+							+ '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">'
+							+ '<img class="bar" src="https://abs-0.twimg.com/emoji/v2/svg/1f7e9.svg">';
 	if (choice.value == countryName) {
 
 		document.getElementById(currentOption).style.backgroundColor = "green";
 		document.getElementById(currentOption).style.color = "white";
 		document.getElementById(currentOption).style.border = "2px solid white";
+
+		document.getElementById(currentDist).innerHTML = "0 km";
 
 		gameEnded = 1;
 
@@ -172,8 +181,6 @@ function check (choice, gameType) {
 		direction = calculateDirection (countries[indexChoice].latitude, countries[indexChoice].longitude,
 						countryLatitude, countryLongitude);
 
-		var currentDist = "dist" + guess;
-		var currentDir = "dir" + guess;
 
 		// Coloca a distancia e a direcao para o local correto
 		document.getElementById(currentDist).innerHTML = distance + " km";
