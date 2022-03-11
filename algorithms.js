@@ -23,44 +23,22 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
 }
 
 function calculateDirection(choiceLat, choiceLon, realLat, realLon) {
-	// hor = 0 igual | hor = 1 esq | hor = 2 dir
-	var hor = 0;
-	// ver = 0 igual | ver = 1 baixo | ver = 2 cima
-	var ver = 0;
+	finalDir = "arrow";
 
-	var tHor = "";
-	var tVer = "";
 
 	if (parseFloat(choiceLat) > parseFloat(realLat)) {
-		ver = 1;
-		tVer = "baixo";
+		finalDir += "-down";
 	} else if (parseFloat(choiceLat) < parseFloat(realLat)) {
-		ver = 2;
-		tVer = "cima";
+		finalDir += "-up";
 	}
-
 
 	if (parseFloat(choiceLon) > parseFloat(realLon)) {
-		hor = 1;
-		tHor = "esquerda";
+		finalDir += "-left";
 	} else if (parseFloat(choiceLon) < parseFloat(realLon)) {
-		hor = 2;
-		tHor = "direita";
+		finalDir += "-right";
 	}
 
-	if (hor == 1) {
-		if (ver == 1) {
-			return "be.png";
-		} else if (ver == 2) {
-			return "ce.png";
-		}
-	} else if (hor = 2) {
-		if (ver == 1) {
-			return "bd.png";
-		} else if (ver == 2) {
-			return "cd.png";
-		}
-	} 
+	return finalDir;
 }
 
 function calculatePercentage (distance) {

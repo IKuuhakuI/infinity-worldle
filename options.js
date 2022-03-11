@@ -114,7 +114,7 @@ function drawOptions() {
 							+ '<h3 id="dist' + i + '"></h3>'
 							+ '</div>'
 							+ '<div class="boxDir">'
-							+ '<img class="imgDir" id="dir' + i + '">'
+							+ '<i id="dir' + i + '"></i>'
 							+ '</div>'
 							+ '<div class="boxPercent" id="percent' + i + '">'
 							+ '</div>'
@@ -219,7 +219,8 @@ function check (choice, gameType) {
 
 		document.getElementById(currentDist).innerHTML = "0 km";
 
-		document.getElementById(currentDir).src = "./img/win.png";
+		document.getElementById(currentDir).classList.add("fa");
+		document.getElementById(currentDir).classList.add("fa-trophy");
 
 		document.getElementById(currentPercentage).innerHTML = '<h3>' + 100 + '%</h3>';
 		document.getElementById (currentOptionBar).innerHTML += 
@@ -246,7 +247,8 @@ function check (choice, gameType) {
 
 		// Coloca a distancia e a direcao para o local correto
 		document.getElementById(currentDist).innerHTML = distance + " km";
-		document.getElementById(currentDir).src = "./img/" + direction;
+		document.getElementById(currentDir).classList.add("bi");
+		document.getElementById(currentDir).classList.add("bi-" + direction);
 		document.getElementById(currentPercentage).innerHTML = '<h3>' + percentage + '%</h3>';
 
 		document.getElementById("answer").value = "";

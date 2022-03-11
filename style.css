@@ -274,12 +274,31 @@ label {
 	justify-content: center;
 	display: flex;
 	height: 30px;
+	resize: horizontal;
 }
 
 .boxDist h3 {
 	color: white;
-	font-size: 25px;
-	margin-top: 1px;
+}
+
+@media screen and (min-width: 730px) {
+	.boxDist h3 {
+		font-size: 25px;
+	}
+}
+
+@media screen and (max-width: 729px) and (min-width: 550px) {
+	.boxDist h3 {
+		margin-top: 5px;
+		font-size: 15px;
+	}
+}
+
+@media screen and (max-width: 549px) {
+	.boxDist h3 {
+		margin-top: 8px;
+		font-size: 10px;
+	}
 }
 
 .loadbar {
@@ -335,4 +354,14 @@ label {
 
 input:focus::placeholder{
 	color: transparent;
+}
+
+.bi {
+	color: white;
+	font-size: 30px;
+}
+
+.fa-trophy {
+	color: white;
+	font-size: 30px;
 }
