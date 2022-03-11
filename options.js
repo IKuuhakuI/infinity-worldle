@@ -264,6 +264,7 @@ function check (choice, gameType) {
 function endGame (hasWon, gameType) {
 	updateCookies(hasWon, gameType);
 
+	document.getElementById("answer").value = countryName;
 	document.getElementById("answer").disabled = true;
 	document.getElementById("answer").style.color = "white"
 	document.getElementById("answer").style.border = "2px solid white"
