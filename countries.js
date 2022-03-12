@@ -1268,8 +1268,8 @@ const countries = [
     code: "PE",
     latitude: "-10",
     longitude: "-76",
-    continent: "Peru",
-    ptBr: "America"
+    continent: "America",
+    ptBr: "Peru"
   },
   {
     country: "Philippines",
