@@ -16,9 +16,7 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
-
 		<script>
-
 			google.charts.load(	
 				'current', {
 				'packages':['geochart'],
@@ -153,10 +151,16 @@
 			placeholder="Digite a sua repsosta..."/>
 			<datalist id="listCountries">
 				<script type="text/javascript">
-						var selectOpt = '';
+					var selectOpt = '';
+					
+					languageUsed = document.documentElement.lang;
 
 					for (var i = 0; i < countries.length; i++) {
-						selectOpt += '<option value ="' + countries[i].country + '"/>';
+						if (languageUsed == "pt-BR") {
+							selectOpt += '<option value ="' + countries[i].ptBr + '"/>';
+						} else {
+							selectOpt += '<option value ="' + countries[i].country + '"/>';
+						}
 					}
 
 					document.getElementById('listCountries').innerHTML = selectOpt;

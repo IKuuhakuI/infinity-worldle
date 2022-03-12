@@ -95,15 +95,6 @@ function showStats (gameType) {
 }
 
 function drawOptions() {
-	/*
-	for (var i = 1; i <= 6; i++) {
-	document.getElementById("options").innerHTML +=   '<div class=container>'
-							+ '<form onsubmit="return false">'
-							+ '<input name="country" id="option'+ i +'" disabled/>'
-							+ '<label id="dist' + i + '" class="dist"></label>'
-							+ '</form></div>';
-	}
-		*/
 	for (var i = 1; i <= 6; i++) {
 	document.getElementById("options").innerHTML +=   '<div class=container>'
 							+ '<div class="loadbar" id="optionBar' + i + '">'
@@ -177,15 +168,12 @@ function setOptionBar (currentOptionBar, percentage) {
 }
 
 function check (choice, gameType) {
-
-	//console.log (gameType);
-	//console.log (choice);
 	gameEnded = 0;
 	var i = 0;
 	var indexChoice = -1;
 
 	while (i < countries.length) {
-		if (countries[i].country == choice.value){
+		if (countries[i].country == choice.value || countries[i].ptBr == choice.value){
 			indexChoice = i;
 			break;
 		} else if (i == countries.length - 1){
@@ -211,7 +199,7 @@ function check (choice, gameType) {
 	var currentPercentage = "percent" + guess;
 
 
-	if (choice.value == countryName) {
+	if (countries[i].country == countryName) {
 
 		document.getElementById(currentOption).style.backgroundColor = "green";
 		document.getElementById(currentOption).style.color = "white";
@@ -271,7 +259,19 @@ function check (choice, gameType) {
 function endGame (hasWon, gameType) {
 	updateCookies(hasWon, gameType);
 
-	document.getElementById("answer").value = countryName;
+	currentLang = document.documentElement.lang;
+
+	answerName = countryName;
+
+	if (currentLang == "pt-BR") {
+		for (var i = 0; i < countries.length; i++) {
+			if (countries[i].country == countryName) {
+				answerName = countries[i].ptBr;
+			}
+		}
+	}
+
+	document.getElementById("answer").value = answerName;
 	document.getElementById("answer").disabled = true;
 	document.getElementById("answer").style.color = "white"
 	document.getElementById("answer").style.border = "2px solid white"

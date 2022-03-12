@@ -5,7 +5,7 @@ const countries = [
     latitude: "33",
     longitude: "65",
     continent: "Asia",
-    ptBr: "afeganistão"
+    ptBr: "Afeganistão"
   },
   {
     country: "Albania",
@@ -123,7 +123,9 @@ const countries = [
     country: "Bangladesh",
     code: "BD",
     latitude: "24",
-    longitude: "90"
+    longitude: "90",
+    continent: "Asia",
+    ptBr: "Bangladesh"
   },
   {
     country: "Barbados",
@@ -417,15 +419,17 @@ const countries = [
     country: "Denmark",
     code: "DK",
     latitude: "56",
-    longitude: "10"
+    longitude: "10",
+    continent: "Europe",
+    ptBr: "Dinamarca"
   },
   {
     country: "Djibouti",
     code: "DJ",
     latitude: "11.5",
     longitude: "43",
-    continent: "Europe",
-    ptBr: "Dinamarca"
+    continent: "Africa",
+    ptBr: "Djibouti"
   },
   {
     country: "Dominica",
@@ -1015,15 +1019,17 @@ const countries = [
     country: "Martinique",
     code: "MQ",
     latitude: "14.6667",
-    longitude: "-61"
+    longitude: "-61",
+    continent: "America",
+    ptBr: "Martinica"
   },
   {
     country: "Mauritania",
     code: "MR",
     latitude: "20",
     longitude: "-12",
-    continent: "America",
-    ptBr: "Martinica"
+    continent: "Africa",
+    ptBr: "Mauritânia"
   },
   {
     country: "Mauritius",
