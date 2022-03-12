@@ -133,7 +133,7 @@ const countries = [
     latitude: "13.1667",
     longitude: "-59.5333",
     continent: "Asia",
-    ptBr: "Bangladesh"
+    ptBr: "Barbados"
   },
   {
     country: "Belarus",
