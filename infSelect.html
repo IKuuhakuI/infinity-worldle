@@ -1,5 +1,11 @@
 <html lang="pt-br">
 	<head>
+		<script>
+			function loadGame () {
+				location.href = "infWorldle.html?Worldle";
+			}
+		</script>
+ 
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<script src="https://kit.fontawesome.com/f79956773e.js" crossorigin="anonymous"></script>
@@ -105,7 +111,7 @@
 				box-sizing: border-box;
 			}
 
-			h1, h2, h3, h4, h5, h6 {
+			h2, h3, h4, h5, h6 {
 				margin-bottom: 20px;
 				text-transform: uppercase;
 				font-family: arial, Helvetica, sans-serif;
@@ -129,7 +135,7 @@
 					<a href="index.html">
 						<li class="menu-item" style="--clr:#6382cc"><i class="fa fa-home"></i>INICIO</li>
 					</a>
-					<a href="infWorldle.html">
+					<a href="infSelect.html">
 						<li class="menu-item" style="--clr:#6382cc"><i class="fa fa-globe"></i>WORLDLE</li>
 					</a>
 
@@ -148,7 +154,30 @@
 				</section>
 			</ul>
 		</div>
-		
+	
+		<div class="container">
+			<h1>Worldle</h1>
+		</div>
+
+		<div class = "container" style="height:10px; background-color:white"></div>
+
+		<div class = container>
+				<button id="btnClassic" class="btn" 
+				style="--clr: #dc00d4; --clr-h:#b200ac; --clr-a:#860081;">
+					<span class="button-text">Em Breve...</span>
+					<span class="button-icon"><i class="fa fa-globe"></i></span>
+				</button>
+				<button type="button" id="btnInfinity" 
+					style="margin-left: 10px; --clr: #00dc82; --clr-h:#009e5d; --clr-a: #036c41;" class="btn" 
+					onclick="loadGame()">
+					<span class="button-text">Infinity</span>
+					<span class="button-icon"><i class="fa fa-infinity"></i></span>
+				</button>
+		</div>
+
+		<div class = "container" style="height:10px; background-color:white"></div>
+		<br><br>	
+
 		<div class="distribution-map">
 			<img src="img/map.png" alt="" />
 
@@ -217,5 +246,6 @@
 				</div>
 			</button>
 		</div>
+		<div class = "container" style="height:10px; background-color:white"></div>
 	</body>
 </html>
