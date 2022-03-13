@@ -1,0 +1,221 @@
+<html lang="pt-br">
+	<head>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="https://kit.fontawesome.com/f79956773e.js" crossorigin="anonymous"></script>
+		<style>
+			.distribution-map {
+				position: relative;
+				width: 80%;
+				max-width: 1400px;
+				padding: 20px;
+				box-sizing: border-box;
+				margin: 0 auto;
+			}
+
+			.distribution-map > img {
+				width: 100%;
+				position: relative;
+				margin: 0;
+				padding: 0;
+			}
+
+			a.play-map {
+				color: white;
+				border: 2px solid white;
+				padding: 8px;
+			}
+
+			a.play-map:hover {
+				color: gray;
+				border-color: lightblue;
+			}
+
+			.map-point {
+				border: 5px solid var(--clr);
+			}
+
+			.distribution-map .map-point {
+				cursor: pointer;
+				outline: none;
+				z-index: 0;
+				position: absolute;
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+				opacity: 0.8;
+				transform: translate(-50%, -50%);
+				-moz-transition: opacity 0.25s ease-in-out 0.25s, width 0.25s ease-in-out 0.25s, height 0.25s ease-in-out 0.25s, z-index 0.25s ease-in-out 0.25s;
+				-o-transition: opacity 0.25s ease-in-out 0.25s, width 0.25s ease-in-out 0.25s, height 0.25s ease-in-out 0.25s, z-index 0.25s ease-in-out 0.25s;
+				-webkit-transition: opacity 0.25s ease-in-out, width 0.25s ease-in-out, height 0.25s ease-in-out, z-index 0.25s ease-in-out;
+				-webkit-transition-delay: 0.25s, 0.25s, 0.25s, 0.25s;
+				transition: opacity 0.25s ease-in-out 0.25s, width 0.25s ease-in-out 0.25s, height 0.25s ease-in-out 0.25s, z-index 0.25s ease-in-out 0.25s;
+				background: rgba(26, 26, 26, 0.85);
+			}
+
+			.distribution-map .map-point .content {
+				filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+				opacity: 0;
+				transition: opacity 0.25s ease-in-out;
+				width: 100%;
+				height: 100%;
+				left: 50%;
+				transform: translateX(-50%);
+				overflow: overlay;
+			}
+
+			.distribution-map .map-point:active, .distribution-map .map-point:focus {
+				margin: 0;
+				padding: 0;
+				opacity: 1;
+				width: 200px;
+				height: 150px;
+				color: #e5e5e5;
+				z-index: 1;
+				border-radius: 10px;
+				transition: opacity 0.25s ease-in-out, width 0.25s ease-in-out, height 0.25s ease-in-out;
+			}
+
+			.distribution-map .map-point:active .content, .distribution-map .map-point:focus .content {
+				filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+				opacity: 1;
+				-moz-transition: opacity 0.25s ease-in-out 0.25s, height 0.25s ease-in-out, overflow 0.25s ease-in-out;
+				-o-transition: opacity 0.25s ease-in-out 0.25s, height 0.25s ease-in-out, overflow 0.25s ease-in-out;
+				-webkit-transition: opacity 0.25s ease-in-out, height 0.25s ease-in-out, overflow 0.25s ease-in-out;
+				-webkit-transition-delay: 0.25s, 0s, 0s;
+				transition: opacity 0.25s ease-in-out 0.25s, height 0.25s ease-in-out, overflow 0.25s ease-in-out;
+				overflow: hidden;
+			}
+
+			.distribution-map .map-point:active .content a:hover, .distribution-map .map-point:active .content a:active, .distribution-map .map-point:focus .content a:hover, .distribution-map .map-point:focus .content a:active {
+				color: #afe1fa;
+			}
+
+			.description {
+				max-width: 600px;
+				margin: 0 auto;
+				color: rgba(229, 229, 229, 0.7);
+			}
+
+			
+
+			div, img, footer {
+				position: relative;
+				box-sizing: border-box;
+			}
+
+			h1, h2, h3, h4, h5, h6 {
+				margin-bottom: 20px;
+				text-transform: uppercase;
+				font-family: arial, Helvetica, sans-serif;
+				font-weight: 300;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="main-menu">
+			<ul>
+				<section id="gameOptions">
+					<a href="#popup2">
+					<li class="menu-item" style="--clr:#6382cc"><i class="fa fa-question-circle"></i>COMO JOGAR</li>
+					</a>
+					<a href="#popup3">
+					<li class="menu-item" style="--clr:#6382cc"><i class="fa fa-cog"></i>CONFIGURAÇÕES</li>
+					</a>
+				</section>
+				<section id="others">
+					<a href="index.html">
+						<li class="menu-item" style="--clr:#6382cc"><i class="fa fa-home"></i>INICIO</li>
+					</a>
+					<a href="infWorldle.html">
+						<li class="menu-item" style="--clr:#6382cc"><i class="fa fa-globe"></i>WORLDLE</li>
+					</a>
+
+					<a href="https://github.com/IKuuhakuI/infinity-worldle">
+						<li class="menu-item" style="--clr:#6382cc"><i class="fa fa-github"></i>GITHUB</li>
+					</a>
+					<!--<a href="">-->
+						<li class="menu-item" style="--clr:#6382cc"><i class="fa fa-wrench"></i>EM BREVE</li>
+					<!--</a>-->
+					<!--<a href="#">-->
+						<li class="menu-item" style="--clr:#6382cc"><i class="fa fa-wrench"></i>EM BREVE</li>
+					<!--</a>-->
+					<!--<a href="#">-->
+						<li class="menu-item" style="--clr:#6382cc"><i class="fa fa-wrench"></i>EM BREVE</li>
+					<!--</a>-->
+				</section>
+			</ul>
+		</div>
+		
+		<div class="distribution-map">
+			<img src="img/map.png" alt="" />
+
+			<!-- Oceania -->
+			<button class="map-point" style="top:76%;left:82.5%;--clr:blue">
+				<div class="content">
+					<div class="centered-y">
+						<br>
+						<h2>Oceania</h2>
+						<p style="margin-top: -10px;">Adivinhe os territórios da Oceania!</p> <br>
+						<div style="width: 50%; margin-left:25%; padding:5px; 
+						margin-top: 5px;"><a class="play-map" href="infWorldle.html?oceania">Jogar!</a></div>
+					</div>
+				</div>
+			</button>
+
+			<!-- Europa -->
+			<button class="map-point" style="top:35%;left:50%;--clr:red">
+				<div class="content">
+					<div class="centered-y">
+						<br>
+						<h2>Europa</h2>
+						<p style="margin-top: -10px;">Adivinhe os territórios da Europa!</p> <br>
+						<div style="width: 50%; margin-left:25%; padding:5px; 
+						margin-top: 5px;"><a class="play-map" href="infWorldle.html?europe">Jogar!</a></div>
+					</div>
+				</div>
+			</button>
+
+			<!-- America -->
+			<button class="map-point" style="top:50%;left:20%;--clr:yellow">
+				<div class="content">
+					<div class="centered-y">
+						<br>
+						<h2>América</h2>
+						<p style="margin-top: -10px;">Adivinhe os territórios da América!</p> <br>
+						<div style="width: 50%; margin-left:25%; padding:5px; 
+						margin-top: 5px;"><a class="play-map" href="infWorldle.html?america">Jogar!</a></div>
+					</div>
+				</div>
+			</button>
+
+			<!-- Africa -->
+			<button class="map-point" style="top:60%;left:53%;--clr:purple">
+				<div class="content">
+					<div class="centered-y">
+						<br>
+						<h2>África</h2>
+						<p style="margin-top: -10px;">Adivinhe os territórios da África!</p> <br>
+						<div style="width: 50%; margin-left:25%; padding:5px; 
+						margin-top: 5px;"><a class="play-map" href="infWorldle.html?africa">Jogar!</a></div>
+					</div>
+				</div>
+			</button>
+
+			<!-- Asia  -->
+			<button class="map-point" style="top:35%;left:70%;--clr:orange">
+				<div class="content">
+					<div class="centered-y">
+						<br>
+						<h2>Ásia</h2>
+						<p style="margin-top: -10px;">Adivinhe os territórios da Ásia!</p> <br>
+						<div style="width: 50%; margin-left:25%; padding:5px; 
+						margin-top: 5px;"><a class="play-map" href="infWorldle.html?asia">Jogar!</a></div>
+					</div>
+				</div>
+			</button>
+		</div>
+	</body>
+</html>
