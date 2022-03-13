@@ -283,3 +283,43 @@ function endGame (hasWon, gameType) {
 	document.getElementById("btnAgain").style.visibility = "visible";
 		document.getElementById("btnCheckOnMaps").style.visibility = "visible";
 }
+
+function setCountryListValues (urlArg, countryList) {
+	possibilities = ["America", "Europe", "Oceania", "Asia", "Africa"];
+
+	for (var x in possibilities) {
+		if (urlArg == possibilities[x]) {
+			break;
+		} else if (x == (possibilities.length - 1)) {
+			return countryList;
+		}
+	}
+
+
+	var newCountryList = [];
+
+	for (var i = 0; i < countryList.length; i++) {
+		if (countryList[i].continent == urlArg) {
+			console.log (countryList[i]);
+			newCountryList.push (countryList[i]);
+		}
+	}
+
+	console.log (newCountryList);
+
+	return newCountryList
+}
+
+function getTitle (urlArg) {
+	possibilities = ["America", "Europe", "Oceania", "Asia", "Africa"];
+
+	var selectedTitle = "Worldle"
+
+	for (var x in possibilities) {
+		if (urlArg == possibilities[x]) {
+			return urlArg;
+		}
+	}
+
+	return selectedTitle;
+}

@@ -1,4 +1,4 @@
-const countries = [
+var countries = [
   {
     country: "Afghanistan",
     code: "AF",
